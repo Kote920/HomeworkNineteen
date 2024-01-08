@@ -36,6 +36,11 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(FragmentUserListB
     }
 
     override fun listeners() {
+
+        binding.btnDelete.setOnClickListener{
+            adapter.removeItems()
+            it.visibility = View.GONE
+        }
     }
 
     private fun initItemRecycler(){
@@ -44,6 +49,13 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(FragmentUserListB
         binding.recyclerView.adapter = adapter
         adapter.itemOnClick = {
                 openUser(it.id!!)
+        }
+        adapter.activateButton = {
+            if(it){
+                binding.btnDelete.visibility = View.VISIBLE
+            }else{
+                binding.btnDelete.visibility = View.GONE
+            }
         }
 
     }
@@ -60,9 +72,10 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(FragmentUserListB
                         is Resource.Success -> {
                             binding.pbLogIn.visibility = View.GONE
 
-                            d("resultaaa",it.responseData.userList.toString())
-//                            adapter.submitList(it.responseData.userList)
-                            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+//                            d("resultaaa",it.responseData.toString())
+                            adapter.submitList(it.responseData.toMutableList())
+                            adapter.items = it.responseData.toMutableList()
+//                            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
                         }
                         is Resource.Failed -> {
                             binding.pbLogIn.visibility = View.GONE
@@ -79,9 +92,10 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(FragmentUserListB
     }
 
     private fun openUser(id: Int) {
-        val action = UserListFragmentDirections.actionUserListFragmentToFragmentUser(id)
+        val action = UserListFragmentDirections.actionUserListFragmentToUserFragment(id)
         findNavController().navigate(action)
     }
+
 
 
 }

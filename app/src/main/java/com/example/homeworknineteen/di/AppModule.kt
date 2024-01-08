@@ -1,6 +1,6 @@
 package com.example.homeworknineteen.di
 
-import com.example.homeworknineteen.data.service.UserListService
+import com.example.homeworknineteen.data.service.UsersService
 import com.example.homeworknineteen.data.service.UserService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -15,10 +15,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModel {
+object AppModule {
 
     const val BASE_URL_USER_LIST = "https://run.mocky.io/v3/"
-    const val BASE_URL_USER = "'https://reqres.in/api/users/"
+    const val BASE_URL_USER = "https://reqres.in/api/users/"
 
     @Singleton
     @Provides
@@ -52,9 +52,9 @@ object AppModel {
 
     @Singleton
     @Provides
- fun provideUsersListService(@Named("userListRetrofit") retrofit: Retrofit): UserListService {
+ fun provideUsersListService(@Named("userListRetrofit") retrofit: Retrofit): UsersService {
 
-        return retrofit.create(UserListService::class.java)
+        return retrofit.create(UsersService::class.java)
     }
 
     @Singleton

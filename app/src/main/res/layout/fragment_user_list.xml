@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
+    android:orientation="vertical"
+    android:padding="15dp"
     android:layout_height="match_parent"
     tools:context=".presentation.userList.UserListFragment">
+
+<androidx.appcompat.widget.AppCompatButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/btnDelete"
+
+    android:visibility="gone"
+    android:layout_marginTop="15dp"
+    android:text="Delete"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerView"/>
+
     <ProgressBar
         android:id="@+id/pbLogIn"
         android:layout_gravity="center"
@@ -13,17 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:visibility="gone"
-      />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/bla"
-        android:text="hhh"
         />
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerView"/>
 
 
-</FrameLayout>
+
+</LinearLayout>

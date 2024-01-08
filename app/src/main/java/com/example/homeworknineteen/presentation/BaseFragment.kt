@@ -1,13 +1,16 @@
 package com.example.homeworknineteen.presentation
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.bumptech.glide.Glide
 import com.example.homeworknineteen.R
 
 typealias inflater<VB> = (LayoutInflater, ViewGroup?, Boolean) -> VB
@@ -86,5 +89,14 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: inflater<VB>)
 //            return true
 //        }
 //    }
+
+    fun imgManagement(imageUrl: String?, context: Context, imageView: AppCompatImageView){
+        imageUrl?.let {
+            Glide.with(context)
+                .load(imageUrl)
+                .fitCenter()
+                .into(imageView)
+        }
+    }
 
 }

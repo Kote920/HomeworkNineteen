@@ -11,14 +11,13 @@
         android:label="fragment_user_list"
         tools:layout="@layout/fragment_user_list" >
         <action
-            android:id="@+id/action_userListFragment_to_fragmentUser"
-            app:destination="@id/fragmentUser" />
+            android:id="@+id/action_userListFragment_to_userFragment"
+            app:destination="@id/userFragment" />
     </fragment>
     <fragment
-        android:id="@+id/fragmentUser"
-        android:name="com.example.homeworknineteen.presentation.user.FragmentUser"
-        android:label="fragment_user"
-        tools:layout="@layout/fragment_user" >
+        android:id="@+id/userFragment"
+        android:name="com.example.homeworknineteen.presentation.user.UserFragment"
+        android:label="UserFragment" >
         <argument
             android:name="id"
             app:argType="integer" />

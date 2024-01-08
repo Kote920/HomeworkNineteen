@@ -1,35 +1,29 @@
 package com.example.homeworknineteen.presentation.user
 
-import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.navArgs
-import com.example.homeworknineteen.R
 import com.example.homeworknineteen.data.common.Resource
 import com.example.homeworknineteen.databinding.FragmentUserBinding
 import com.example.homeworknineteen.presentation.BaseFragment
-import com.example.homeworknineteen.presentation.userList.UserListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-
-class FragmentUser : BaseFragment<FragmentUserBinding>(FragmentUserBinding::inflate) {
+@AndroidEntryPoint
+class UserFragment : BaseFragment<FragmentUserBinding>(FragmentUserBinding::inflate) {
 
     private val viewModel: UserViewModel by viewModels()
-    private val args: FragmentUserArgs by navArgs()
+    private val args: UserFragmentArgs by navArgs()
     override fun setUp() {
         viewModel.getUser(args.id)
         bindObserves()
     }
 
     override fun listeners() {
-        TODO("Not yet implemented")
+
     }
 
     override fun bindObserves() {
@@ -43,10 +37,15 @@ class FragmentUser : BaseFragment<FragmentUserBinding>(FragmentUserBinding::infl
                         }
                         is Resource.Success -> {
                             binding.pbLogIn.visibility = View.GONE
+                            val user = it.responseData
+                            binding.tvFirstName.text = user.firstName
+                            binding.tvLastName.text = user.lastName
+                            binding.tvEmail.text = user.email
+                            imgManagement(user.avatar, requireContext(), binding.ivAvatar)
 
 //                            Log.d("resultaaa", it.responseData.userList.toString())
 //                            adapter.submitList(it.responseData.userList)
-                            Toast.makeText(requireContext(), "Success!", Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(requireContext(), it.responseData.lastName.toString(), Toast.LENGTH_SHORT).show()
                         }
                         is Resource.Failed -> {
                             binding.pbLogIn.visibility = View.GONE
