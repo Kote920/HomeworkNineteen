@@ -1,4 +1,4 @@
-package com.example.homeworknineteen.presentation.userList
+package com.example.homeworknineteen.presentation.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.homeworknineteen.R
 import com.example.homeworknineteen.databinding.ItemRecyclerviewBinding
-import com.example.homeworknineteen.domain.model.UsersResponse
 import com.example.homeworknineteen.presentation.model.User
 
 

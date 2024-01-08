@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/userListFragment"
-        android:name="com.example.homeworknineteen.presentation.userList.UserListFragment"
+        android:name="com.example.homeworknineteen.presentation.fragments.UserListFragment"
         android:label="fragment_user_list"
         tools:layout="@layout/fragment_user_list" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/userFragment"
-        android:name="com.example.homeworknineteen.presentation.user.UserFragment"
+        android:name="com.example.homeworknineteen.presentation.fragments.UserFragment"
         android:label="UserFragment" >
         <argument
             android:name="id"

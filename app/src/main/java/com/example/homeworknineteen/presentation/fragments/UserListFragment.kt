@@ -1,11 +1,6 @@
-package com.example.homeworknineteen.presentation.userList
+package com.example.homeworknineteen.presentation.fragments
 
-import android.os.Bundle
-import android.util.Log.d
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -13,13 +8,12 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.homeworknineteen.R
 import com.example.homeworknineteen.data.common.Resource
 import com.example.homeworknineteen.databinding.FragmentUserListBinding
 import com.example.homeworknineteen.presentation.BaseFragment
+import com.example.homeworknineteen.presentation.adapters.UserListRecyclerAdapter
+import com.example.homeworknineteen.presentation.viewModels.UserListViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 

@@ -1,4 +1,4 @@
-package com.example.homeworknineteen.presentation.user
+package com.example.homeworknineteen.presentation.fragments
 
 import android.view.View
 import android.widget.Toast
@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.example.homeworknineteen.data.common.Resource
 import com.example.homeworknineteen.databinding.FragmentUserBinding
 import com.example.homeworknineteen.presentation.BaseFragment
+import com.example.homeworknineteen.presentation.viewModels.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 @AndroidEntryPoint

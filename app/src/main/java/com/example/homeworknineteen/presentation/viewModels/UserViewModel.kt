@@ -1,4 +1,4 @@
-package com.example.homeworknineteen.presentation.user
+package com.example.homeworknineteen.presentation.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
