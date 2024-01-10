@@ -57,9 +57,12 @@ object AppModule {
         return retrofit.create(UsersService::class.java)
     }
 
+
+
     @Singleton
     @Provides
     fun provideUserService(@Named("UserRetrofit") retrofit: Retrofit): UserService {
         return retrofit.create(UserService::class.java)
     }
+
 }

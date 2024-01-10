@@ -114,13 +114,18 @@ class UserListRecyclerAdapter() :
         }
     }
 
-    fun removeItems() {
+    fun removeItems(): List<Int> {
 
 //            currentList.toMutableList().removeAt(position)
 //            notifyItemRemoved(position)
             items = (items - selectedUsers).toMutableList()
             submitList(items)
+            val userIds = mutableListOf<Int>()
+            for(each in selectedUsers){
+                userIds.add(each.id!!)
+            }
             selectedUsers.clear()
+            return userIds
 //            selectedUsers.clear()
     }
 

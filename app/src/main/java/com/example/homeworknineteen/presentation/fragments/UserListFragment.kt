@@ -32,7 +32,7 @@ class UserListFragment : BaseFragment<FragmentUserListBinding>(FragmentUserListB
     override fun listeners() {
 
         binding.btnDelete.setOnClickListener{
-            adapter.removeItems()
+            viewModel.deleteUser(adapter.removeItems())
             it.visibility = View.GONE
         }
     }

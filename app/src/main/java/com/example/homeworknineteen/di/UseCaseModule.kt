@@ -2,8 +2,10 @@ package com.example.homeworknineteen.di
 
 import com.example.homeworknineteen.domain.repository.UserRepository
 import com.example.homeworknineteen.domain.repository.UsersRepository
+import com.example.homeworknineteen.domain.useCase.DeleteUserUseCase
 import com.example.homeworknineteen.domain.useCase.GetUserDetailsUseCase
 import com.example.homeworknineteen.domain.useCase.GetUsersListUseCase
+import com.example.homeworknineteen.domain.useCaseImpl.DeleteUserUseCaseImpl
 import com.example.homeworknineteen.domain.useCaseImpl.GetUserDetailsUseCaseImpl
 import com.example.homeworknineteen.domain.useCaseImpl.GetUsersListUseCaseImpl
 import dagger.Module
@@ -26,4 +28,10 @@ object UseCaseModule {
     fun provideGetUserDetailsUseCase(userRepository: UserRepository): GetUserDetailsUseCase {
         return GetUserDetailsUseCaseImpl(userRepository)
     }
+    @Singleton
+    @Provides
+    fun provideDeleteUserUseCase(usersRepository: UsersRepository): DeleteUserUseCase {
+        return DeleteUserUseCaseImpl(usersRepository)
+    }
+
 }
